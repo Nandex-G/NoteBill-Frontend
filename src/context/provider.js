@@ -2,7 +2,7 @@
 import { useContext, createContext } from "react";
 
 export const BillContext = createContext({
-    bills : [ { id : 1, title : 'Money', name : 'Someone', fullPrize : 123, paidPrize : 123 } ],
+    bills : [ { id : 1, title : 'Money', name : 'Someone', fullPrice : 123, paidPrice : 123 } ],
     addBill : (bill) => {},
     removeBill : (id) => {},
     editBill : (id) => {},

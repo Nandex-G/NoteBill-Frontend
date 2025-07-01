@@ -38,7 +38,7 @@ function BillForm({ visibility }) {
         
         e.target[2].value = parsePersianNumber(e.target[2].value)
 
-        billContext.addBill({ title : e.target[0].value, name : e.target[1].value, fullPrize :  e.target[2].value, paidPrize : 0 })
+        billContext.addBill({ title : e.target[0].value, name : e.target[1].value, fullPrice :  e.target[2].value, paidPrice : 0 })
 
         e.target[0].value = ''
         e.target[1].value = ''
