@@ -35,7 +35,7 @@ function App() {
           }
         </div>
         <div className="flex">
-          <button onClick={() => { if(confirm('آیا میخواهید از حساب خود خارج شوید؟')) {localStorage.removeItem('NOTEBILLTOKEN'); setUsername(null)}}} className={`bg-red-500 text-xs sm:text-sm m-1 w-12 md:w-16 rounded-2xl justify-center items-center cursor-pointer hover:bg-red-600 duration-200 py-1 md:py-2 ${ shownAccounting && Username ? 'flex' : 'hidden'}`}>خروج</button>
+          <button onClick={() => { if(confirm('آیا میخواهید از حساب خود خارج شوید؟')) {localStorage.removeItem('NOTEBILLTOKEN'); setUsername(null)}; location.reload()}} className={`bg-red-500 text-xs sm:text-sm m-1 w-12 md:w-16 rounded-2xl justify-center items-center cursor-pointer hover:bg-red-600 duration-200 py-1 md:py-2 ${ shownAccounting && Username ? 'flex' : 'hidden'}`}>خروج</button>
           <div onClick={() => setShownAccounting(!shownAccounting)} className={`bg-green-500 ${ shownAccounting ? 'py-1 md:py-2 m-1 rounded-2xl w-12 md:w-16' : 'p-2 md:py-3 rounded-b-lg w-36 md:w-48' } text-nowrap overflow-hidden text-xs text-center md:text-sm cursor-pointer hover:bg-green-600 duration-200`}>{ shownAccounting ? 'بستن' : 'نمایش حساب کاربری'}</div>
         </div>
       </div>

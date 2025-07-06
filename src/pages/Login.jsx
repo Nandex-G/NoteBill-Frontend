@@ -43,7 +43,7 @@ function Login() {
             alert('با موفقیت وارد شدید! ✅')
             localStorage.setItem('NOTEBILLTOKEN', data.token)
             console.log(data)
-            // window.location.href = data.redirect
+            window.location.href = data.redirect
             loadingVisibilityChanger(false)
         } else {
             alert(data.msg + ' ❌ ')
