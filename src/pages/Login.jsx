@@ -40,7 +40,6 @@ function Login() {
         const data = await response.json()
 
         if (response.ok) {
-            alert('با موفقیت وارد شدید! ✅')
             localStorage.setItem('NOTEBILLTOKEN', data.token)
             console.log(data)
             window.location.href = data.redirect

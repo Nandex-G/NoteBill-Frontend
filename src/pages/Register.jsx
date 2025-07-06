@@ -39,7 +39,6 @@ export default function Register() {
     const data = await response.json()
 
     if (response.ok) {
-      alert('ثبت‌نام موفق بود! ✅')
       localStorage.setItem('NOTEBILLTOKEN', data.token)
       window.location.href = data.redirect
       loadingVisibilityChanger(false)
