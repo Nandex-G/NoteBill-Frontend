@@ -107,7 +107,7 @@ function Bills() {
     const token = localStorage.getItem('NOTEBILLTOKEN')
     fetch('https://notebill-backend.onrender.com/', { method : 'GET', headers : {'x-auth-token' : token} })
       .then( response => response.json() )
-      .then( billList => {if(billList.length >= 1 ) setBills(billList); loadingVisibilityChanger(false)} )  
+      .then( billList => {setBills(Array.isArray(billList) ? billList : []);; loadingVisibilityChanger(false)} )  
       .catch( (error) => console.log('There was an error when fetching Bills from database:',error) )
   }, [])
 
