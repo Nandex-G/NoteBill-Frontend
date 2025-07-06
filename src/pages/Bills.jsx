@@ -25,12 +25,6 @@ function Bills() {
 
   const addBill = (bill) => {
     const token = localStorage.getItem('NOTEBILLTOKEN')
-    if (token) {
-      fetch('https://notebill-backend.onrender.com/api/auth/user', { headers : {'x-auth-token': token} })
-        .then( response => response.json() )
-        .then( data => {setUsername(data.username); data.msg == 'توکن نامعتبر است' ? localStorage.removeItem('NOTEBILLTOKEN') : null} )
-        .catch( error => { console.log('There wan an error in fetching account : ======>', error); setTimeout(() => location.reload(), 5000) } )
-    }
     loadingVisibilityChanger(true)
     fetch('https://notebill-backend.onrender.com/create-bill', { method : 'POST', headers : {'Content-Type': 'application/json', 'x-auth-token' : token}, body : JSON.stringify(bill) })
       .then( response => response.json() )
@@ -117,6 +111,12 @@ function Bills() {
       .then( response => response.json() )
       .then( billList => {setBills(Array.isArray(billList) ? billList : []);; loadingVisibilityChanger(false)} )  
       .catch( (error) => console.log('There was an error when fetching Bills from database:',error) )
+    if (token) {
+      fetch('https://notebill-backend.onrender.com/api/auth/user', { headers : {'x-auth-token': token} })
+        .then( response => response.json() )
+        .then( data => {setUsername(data.username); data.msg == 'توکن نامعتبر است' ? localStorage.removeItem('NOTEBILLTOKEN') : null} )
+        .catch( error => { console.log('There wan an error in fetching account : ======>', error); setTimeout(() => location.reload(), 5000) } )
+    }
   }, [])
 
 
