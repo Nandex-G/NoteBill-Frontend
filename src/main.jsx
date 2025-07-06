@@ -8,7 +8,7 @@ import './index.css'
 
 import App from './App.jsx'
 import Login from './pages/Login.jsx'
-import Register from './pages/register.jsx'
+import Register from './pages/Register.jsx'
 import Bills from './pages/Bills.jsx'
 
 // 
