@@ -4,6 +4,8 @@ import { BillContextProvider } from "../context/provider"
 
 function Bills() {
 
+  const [ Username, setUsername ] = useState(null)
+
   const [ bills, setBills ] = useState([])
   const [ billFormVisibility, setBillFormVisibility] = useState(false)
 
@@ -23,6 +25,12 @@ function Bills() {
 
   const addBill = (bill) => {
     const token = localStorage.getItem('NOTEBILLTOKEN')
+    if (token) {
+      fetch('https://notebill-backend.onrender.com/api/auth/user', { headers : {'x-auth-token': token} })
+        .then( response => response.json() )
+        .then( data => {setUsername(data.username); data.msg == 'توکن نامعتبر است' ? localStorage.removeItem('NOTEBILLTOKEN') : null} )
+        .catch( error => { console.log('There wan an error in fetching account : ======>', error); setTimeout(() => location.reload(), 5000) } )
+    }
     loadingVisibilityChanger(true)
     fetch('https://notebill-backend.onrender.com/create-bill', { method : 'POST', headers : {'Content-Type': 'application/json', 'x-auth-token' : token}, body : JSON.stringify(bill) })
       .then( response => response.json() )
@@ -115,7 +123,7 @@ function Bills() {
   return (
     <BillContextProvider value={{bills, addBill, removeBill, editBill, addPaidAmount, billFormVisibilityChanger}} >
       <div className="w-full h-full py-12 flex flex-col items-center">
-        <div className="bg-slate-100 md:px-12 pb-5 scroll0 flex gap-3 flex-wrap justify-center">
+        <div className="bg-slate-100 opa md:px-12 pb-5 scroll0 flex gap-3 flex-wrap justify-center">
           {
             
             bills && bills.map((bill) => {              
@@ -124,7 +132,7 @@ function Bills() {
           }
         </div>
         <div className="inline">
-          <Button hoverBgColor="hover:bg-green-700" bgColor="bg-green-600" classNames='shadow-xl py-2 px-8 rounded-2xl font-bold text-xs sm:text-sm md:text-lg' value="اضافه کردن بدهی جدید" onClick={() => billFormVisibilityChanger(true)} />  
+          <Button hoverBgColor="hover:bg-green-700" bgColor="bg-green-600" classNames={`shadow-xl py-2 px-8 rounded-2xl font-bold text-xs sm:text-sm md:text-lg ${Username ? 'opacity-100' : 'opacity-50'}`} value="اضافه کردن بدهی جدید" onClick={() => Username ? billFormVisibilityChanger(true) : alert('ّابتدا باید وارد حساب خود شوید')} />  
         </div>
       </div>
       <div className={`${loadingDisplay} ${loadingOpacity} none absolute z-50 top-0 w-full h-full bg-black/30 backdrop-blur-sm justify-center items-center duration-200 `}>
