@@ -74,14 +74,14 @@ function BillForm({ visibility }) {
 
   return (
     <div className={`absolute z-20 top-0 w-screen h-screen bg-black/50 backdrop-blur-sm justify-center items-center duration-200 ${billFormDisplay} ${billFormOpacity}`}>
-        <Button onClick={() => billContext.billFormVisibilityChanger(false)} classNames='absolute top-5 sm:top-10 md:top-15 rounded-lg w-1/2 md:text-lg text-white' bgColor='bg-red-500' hoverBgColor='hover:bg-red-600' value='بستن'/>
-        <form onSubmit={(e) => handleSubmit(e)} className='w-5/6 sm:w-4/6 h-2/3 max-w-xl md:max-h-1/2 sm:min-h-[450px] bg-[#f0f4f9] text-gray-800 rounded-2xl shadow-2xl flex justify-between py-5 flex-col items-center'>
-            <div className='flex items-center gap-2 sm:gap-5 flex-col w-full h-4/5'>
-                <Input placeHolder='موضوع' type='text' parentClassNames='text-center w-full flex flex-col items-center py-3 px-2' classNames='text-center bg-white shadow-inner outline-none w-full sm:w-5/6 py-2 mt-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-400' labelColor='text-gray-700 md:text-lg lg:text-xl' label='موضوع بدهی' required />
-                <Input placeHolder='نام' type='text' parentClassNames='text-center w-full flex flex-col items-center py-3 px-2' classNames='text-center bg-white shadow-inner outline-none w-full sm:w-5/6 py-2 mt-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-400' labelColor='text-gray-700 md:text-lg lg:text-xl' label='نام بستانکار' required />
-                <Input placeHolder='مبلغ' type='text' onInput={(e) => textTransformer(e)} parentClassNames='text-center w-full flex flex-col items-center py-3 px-2' classNames='text-center bg-white shadow-inner outline-none w-full sm:w-5/6 py-2 mt-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-400' labelColor='text-gray-700 md:text-lg lg:text-xl' label='مبلغ کل بدهی' required />
+        <Button onClick={() => billContext.billFormVisibilityChanger(false)} classNames="absolute top-5 sm:top-10 md:top-15 rounded-lg w-1/2 md:text-lg text-white" bgColor="bg-red-500" hoverBgColor="hover:bg-red-600" value="بستن" />
+        <form onSubmit={(e) => handleSubmit(e)} className="w-5/6 sm:w-4/6 h-2/3 max-w-xl md:max-h-1/2 sm:min-h-[450px] bg-[#1f2333] text-white/90 rounded-2xl shadow-xl flex justify-between py-5 flex-col items-center border border-[#2b305e]" >
+            <div className="flex items-center gap-2 sm:gap-5 flex-col w-full h-4/5">
+            <Input placeHolder="موضوع" type="text" parentClassNames="text-center w-full flex flex-col items-center py-3 px-2" classNames="text-center bg-[#2a2f45] text-white placeholder:text-white/60 shadow-inner outline-none w-full sm:w-5/6 py-2 mt-3 rounded-xl border border-[#3e4462] focus:ring-2 focus:ring-emerald-400" labelColor="text-white text-opacity-80 md:text-lg lg:text-xl" label="موضوع بدهی" required />
+            <Input placeHolder="نام" type="text" parentClassNames="text-center w-full flex flex-col items-center py-3 px-2" classNames="text-center bg-[#2a2f45] text-white placeholder:text-white/60 shadow-inner outline-none w-full sm:w-5/6 py-2 mt-3 rounded-xl border border-[#3e4462] focus:ring-2 focus:ring-emerald-400" labelColor="text-white text-opacity-80 md:text-lg lg:text-xl" label="نام بستانکار" required />
+            <Input placeHolder="مبلغ" type="text" onInput={(e) => textTransformer(e)} parentClassNames="text-center w-full flex flex-col items-center py-3 px-2" classNames="text-center bg-[#2a2f45] text-white placeholder:text-white/60 shadow-inner outline-none w-full sm:w-5/6 py-2 mt-3 rounded-xl border border-[#3e4462] focus:ring-2 focus:ring-emerald-400" labelColor="text-white text-opacity-80 md:text-lg lg:text-xl" label="مبلغ کل بدهی" required />
             </div>
-            <Button type='submit' bgColor='bg-emerald-500' hoverBgColor='hover:bg-emerald-600' textColor='text-white' classNames='rounded-xl w-2/3 py-2' value='اضافه کردن' />
+            <Button type="submit" bgColor="bg-[#1e7f5c]" hoverBgColor="hover:bg-[#2bb17e]" textColor="text-white" classNames="rounded-xl w-2/3 py-2" value="اضافه کردن" />
         </form>
     </div>
   )

@@ -123,7 +123,7 @@ function Bills() {
   return (
     <BillContextProvider value={{bills, addBill, removeBill, editBill, addPaidAmount, billFormVisibilityChanger}} >
       <div className="w-full h-full py-12 flex flex-col items-center">
-        <div className="bg-slate-100 opa md:px-12 pb-5 scroll0 flex gap-3 flex-wrap justify-center">
+        <div className="from-slate-800 to-slate-950 md:px-12 pb-5 flex gap-3 flex-wrap justify-center">
           {
             
             bills && bills.map((bill) => {              
@@ -132,7 +132,7 @@ function Bills() {
           }
         </div>
         <div className="inline">
-          <Button hoverBgColor="hover:bg-green-700" bgColor="bg-green-600" classNames={`shadow-xl py-2 px-8 rounded-2xl font-bold text-xs sm:text-sm md:text-lg ${Username ? 'opacity-100' : 'opacity-50'}`} value="اضافه کردن بدهی جدید" onClick={() => Username ? billFormVisibilityChanger(true) : alert('ّابتدا باید وارد حساب خود شوید')} />  
+          <Button value="اضافه کردن بدهی جدید" onClick={() => Username ? billFormVisibilityChanger(true) : alert('ابتدا باید وارد حساب خود شوید')} bgColor="bg-[#1e7f5c]" hoverBgColor="hover:bg-[#2bb17e]" textColor="text-white" classNames={`shadow-md py-2 px-8 rounded-2xl font-bold text-sm md:text-base transition duration-200 ${ Username ? 'opacity-100' : 'opacity-50' }`}/>
         </div>
       </div>
       <div className={`${loadingDisplay} ${loadingOpacity} none absolute z-50 top-0 w-full h-full bg-black/30 backdrop-blur-sm justify-center items-center duration-200 `}>
